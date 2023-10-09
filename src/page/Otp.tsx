@@ -7,11 +7,8 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ShieldCheck } from "lucide-react";
-import OtpInput from "otp-input-react";
-import { useState } from "react";
 
 export default function Otp() {
-  const [opt, setOpt] = useState("");
 
   return (
     <div className="grid items-center justify-center h-screen">
@@ -25,19 +22,6 @@ export default function Otp() {
         <CardContent>
           <form className="grid gap-5">
             <div className="flex gap-4">
-              <OtpInput
-                value={opt}
-                onChange={setOpt}
-                OTPLength={6}
-                otpType="number"
-                disabled={false}
-                autoFocus
-                className="w-11 h-11 text-center"
-                inputStyles={{
-                  className:
-                    "flex rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-                }}
-              />
             </div>
             <div className="flex gap-4">
               <Input type="text" className="w-11 h-11 text-center" />

@@ -30,6 +30,7 @@ export default function Signin() {
   } = useForm<UserData>({
     resolver: zodResolver(UserSchema),
   });
+  console.log(output);
   // const formData
   const signData = (data: UserData) => {
     setDelay(true);
