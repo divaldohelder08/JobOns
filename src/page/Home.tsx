@@ -15,6 +15,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ArrowRight, Menu, Search, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import Footer from "@/components/Home/Footer";
 
 const routes = [
   {
@@ -42,6 +43,11 @@ export default function Home() {
               </SheetTrigger>
               <SheetContent side={"left"} className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col gap-4">
+                  <Link to="#">
+                    <h1 className="text-xl font-bold">
+                      Job<b className="text-primary">Ons</b>
+                    </h1>
+                  </Link>
                   {routes?.map((route, key) => {
                     return (
                       <a
@@ -78,20 +84,22 @@ export default function Home() {
             </Sheet>
             <div className="mr-4 hidden md:flex">
               <nav className="flex items-center space-x-6 text-sm font-medium">
-                <a href="/" className="mr-6 ">
-                  <h1 className="text-xl font-bold">Headers</h1>
-                </a>{" "}
+                <Link to="#" className="mr-6 ">
+                  <h1 className="text-xl font-bold">
+                    Job<b className="text-primary">Ons</b>
+                  </h1>
+                </Link>
                 {routes?.map((route, key) => {
                   return (
-                    <a
-                      href={route.href}
+                    <Link
+                      to={route.href}
                       key={key}
                       className="text-sm font-medium border-primary hover:border-b 
                       transition-colors hover:text-foreground/80 text-foreground/60
                       "
                     >
                       {route.label}
-                    </a>
+                    </Link>
                   );
                 })}
               </nav>
@@ -102,10 +110,12 @@ export default function Home() {
                 <Dialog>
                   <DialogTrigger asChild>
                     <button className="inline-flex items-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 relative w-full justify-start text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64">
-                      <span className="hidden lg:inline-flex">
-                        Search documentation...
+                      <span className="lg:inline-flex md:hidden">
+                        Pesquise qualquer coisa...
                       </span>
-                      <span className="inline-flex lg:hidden">Search...</span>
+                      <span className="hidden md:inline-flex lg:hidden">
+                        Pesquisar...
+                      </span>
                       <kbd className="pointer-events-none absolute right-1.5 top-1.5 h-5 select-none items-center px-1.5 font-medium opacity-100 sm:flex">
                         <span className="text-xs">
                           <Search size={20} />
@@ -158,6 +168,7 @@ export default function Home() {
         </Container>
       </header>
       <Hero />
+      <Footer />
     </>
   );
 }

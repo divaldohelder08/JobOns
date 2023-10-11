@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Home from "@/page/Home";
 import Signin from "@/page/Sign-in";
 import Signup from "@/page/Sign-up";
-import { createBrowserRouter,RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Otp from "./page/Otp";
 export default function Routes() {
   const rotas = createBrowserRouter([

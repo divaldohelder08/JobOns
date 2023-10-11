@@ -1,13 +1,15 @@
 import { api } from "@/Api/Api";
+import Comment from "@/components/Comment";
 import { Button } from "@/components/ui/button";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleDashed, Command, Github, Lock } from "lucide-react";
+import { CircleDashed, Github, Lock } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { z } from "zod";
 
 const UserSchema = z.object({
@@ -56,25 +58,27 @@ export default function Signin() {
       });
   };
   return (
-    <div className="flex h-screen bg-card items-center">
-      <div className="max-w-[560px] rs:border bg-card text-card-foreground shadow py-5 px-9 mx-auto ">
-        <h1 className=" font-extrabold text-cyan-800 hover:underline">
-          Job<b className="text-primary">Ons</b>
-        </h1>
-        <div className="w-full h-full">
-          <CardHeader className="px-6 py-0">
+    <div className="flex h-screen w-full bg-card">
+      <div className="my-auto w-[455px] rs:border-r bg-card text-card-foreground shadow py-5 px-9 mx-auto rs:mx-0">
+        <div className="relative z-20 flex items-center">
+          <h1 className="text-xl font-bold text-foreground/75">
+            Job<b className="text-primary">Ons</b>
+          </h1>
+        </div>
+        <div className="w-full">
+          <CardHeader className="px-6 py-0  space-y-1">
             <CardTitle className="font-normal mt-8 mb-2 text-2xl lg:text-3xl">
               Bem-vindo de volta
             </CardTitle>
             <CardDescription>Entra na tua conta</CardDescription>
-            <div className="w-full py-6 grid grid-cols-2 gap-6">
+            <div className="w-full flex flex-col space-y-5 py-6">
               <Button
-                variant="outline"
+                variant="secondary"
                 size="lg"
                 className=" w-full text-center gap-1.5"
               >
                 <Github size="16" />
-                Github
+                Entrar com o Github
               </Button>
               <Button
                 variant="outline"
@@ -82,13 +86,13 @@ export default function Signin() {
                 className="w-full text-center gap-1.5"
               >
                 <Lock size="16" />
-                Google
+                Entrar com o Google
               </Button>
             </div>
           </CardHeader>
           <div className="relative mb-4">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-scale-700"></div>
+              <div className="w-full border-t border-scale-700" />
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="bg-card px-2 text-sm text-scale-1200">ou</span>
@@ -119,7 +123,7 @@ export default function Signin() {
                 <Label className="">Senha</Label>
                 <a
                   href="#"
-                  className="text-sm text-scale-900 hover:text-muted-foreground"
+                  className="text-xs text-scale-900 hover:text-muted-foreground"
                 >
                   Esqueceu a senha
                 </a>
@@ -146,34 +150,20 @@ export default function Signin() {
             <div className="mx-auto my-8 text-sm">
               <div>
                 <span>Não tens uma conta? </span>
-                <a
+                <Link
                   className="underline transition hover:text-scale-1100"
-                  href="/sign-up"
+                  to="/cadastrar"
                 >
-                  Sign Up agora
-                </a>
+                  Registre-se agora
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="relative  hidden h-full flex-col bg-muted p-10 text-white dark:border-r rs:flex">
-        <div className="absolute inset-0 bg-zinc-900" />
-        <div className="relative z-20 flex items-center text-lg font-medium">
-          <Command size={24} />
-          Acme Inc
-        </div>
-        <div className="relative z-20 mt-auto">
-          <blockquote className="space-y-2">
-            <p className="text-lg">
-              &ldquo;This library has saved me countless hours of work and
-              helped me deliver stunning designs to my clients faster than ever
-              before.&rdquo;
-            </p>
-            <footer className="text-sm">Sofia Davis</footer>
-          </blockquote>
-        </div>
-      </div>
+      <Comment person="Acassia Namboje">
+        <>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum labore doloremque reiciendis voluptatibus nobis inventore temporibus aspernatur explicabo illum veniam</>
+      </Comment>
     </div>
   );
 }

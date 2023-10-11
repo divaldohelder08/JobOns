@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+// @typescript-eslint/no-var-requires
+import ola from "tailwindcss/defaultTheme"
 export const darkMode = ["class"];
 export const content = [
   "./pages/**/*.{ts,tsx}",
@@ -13,6 +15,10 @@ export const theme = {
     screens: {
       "2xl": "1400px",
     },
+  },
+  screens: {
+    rs: "992px",
+    ...ola.screens  
   },
   extend: {
     colors: {
@@ -78,7 +84,7 @@ export const theme = {
     animation: {
       "accordion-down": "accordion-down 0.2s ease-out",
       "accordion-up": "accordion-up 0.2s ease-out",
-      "bouncex": "bouncex 1s infinite;",
+      bouncex: "bouncex 1s infinite;",
     },
   },
 };

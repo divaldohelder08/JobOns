@@ -1,4 +1,5 @@
 import { api } from "@/Api/Api";
+import Comment from "@/components/Comment";
 import { Button } from "@/components/ui/button";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -13,7 +14,6 @@ import {
   EyeOff,
   Github,
   Lock,
-  Command,
 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -70,7 +70,7 @@ export default function Signup() {
   } = useForm<UserData>({
     resolver: zodResolver(UserSchema),
   });
-console.log(output);
+  console.log(output);
   const signData = (data: UserData) => {
     setDelay(true);
 
@@ -96,232 +96,208 @@ console.log(output);
       });
   };
   return (
-    <div className="container relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-      <div className="w-[485px] relative  h-full flex-col bg-muted p-10 text-white dark:border-r flex">
-        <div className="absolute inset-0 bg-zinc-900" />
-        <div className="relative z-20 flex items-center text-lg font-medium">
-          <Command size={24} />
-          Acme Inc
-        </div>
-        <div className="relative z-20 mt-auto">
-          <blockquote className="space-y-2">
-            <p className="text-lg">
-              &ldquo;This library has saved me countless hours of work and
-              helped me deliver stunning designs to my clients faster than ever
-              before.&rdquo;
-            </p>
-            <footer className="text-sm">Sofia Davis</footer>
-          </blockquote>
-        </div>
-      </div>
-      <div className="hidden lg:flex">
-        <div className="border bg-card text-card-foreground shadow py-5 px-9 mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-          <h1 className=" font-extrabold text-cyan-800 hover:underline">
-            Job<b className="text-primary">On</b>
+    <div className="flex h-screen w-full bg-card">
+      <div className="my-auto w-[455px] rs:border-r bg-card text-card-foreground shadow py-5 px-9 mx-auto rs:mx-0">
+        <div className="relative z-20 flex items-center">
+          <h1 className="text-xl font-bold text-foreground/75">
+            Job<b className="text-primary">Ons</b>
           </h1>
-          <div className="w-full h-full">
-            {!next && (
+        </div>
+        <div className="w-full">
+          {!next && (
+            <>
+              <CardHeader className="px-6 py-0 space-y-1">
+                <CardTitle className="font-normal mt-8 mb-2 text-2xl lg:text-3xl">
+                  Seja, bem-vindo
+                </CardTitle>
+                <CardDescription>Criar uma conta</CardDescription>
+                <div className="w-full flex flex-col space-y-5 py-6">
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className=" w-full text-center gap-1.5"
+                  >
+                    <Github size="16" />
+                    Criar com o Github
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full text-center gap-1.5"
+                  >
+                    <Lock size="16" />
+                    Criar com o Google
+                  </Button>
+                </div>
+              </CardHeader>
+              <div className="relative mb-4">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-scale-700" />
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="bg-card px-2 text-sm text-scale-1200">
+                    ou
+                  </span>
+                </div>
+              </div>
+            </>
+          )}
+          <form
+            onSubmit={handleSubmit(signData)}
+            className={`flex flex-col gap-4 mt-4`}
+          >
+            <div className="space-y-2">
+              <Label htmlFor="nome">Nome</Label>
+              <div>
+                <Input
+                  type="text"
+                  autoComplete="name"
+                  placeholder="insira o seu nome"
+                  {...register("nome")}
+                />
+              </div>
+              {errors.nome && (
+                <p className="text-[0.8rem] font-medium text-destructive ">
+                  {errors.nome.message}
+                </p>
+              )}
+            </div>{" "}
+            <div className="space-y-2">
+              <Label htmlFor="username">username</Label>
+              <div>
+                <Input
+                  type="text"
+                  placeholder="insira o seu username"
+                  autoComplete="username"
+                  {...register("username")}
+                />
+              </div>
+              {errors.username && (
+                <p className="text-[0.8rem] font-medium text-destructive ">
+                  {errors.username.message}
+                </p>
+              )}
+            </div>
+            {next && (
               <>
-                <CardHeader className="px-6 py-0 space-y-1">
-                  <CardTitle className="font-normal mt-8 mb-2 text-2xl lg:text-3xl">
-                    Seja, bem-vindo
-                  </CardTitle>
-                  <CardDescription>Criar uma conta</CardDescription>
-                  <div className="w-full py-6 grid grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label className="">E-mail</Label>
+                  <div>
+                    <Input
+                      type="email"
+                      autoComplete="email"
+                      placeholder="insira o seu e-mail"
+                      {...register("email")}
+                      className={errors.email && ""}
+                    />
+                  </div>
+                  {errors.email && (
+                    <p className="text-[0.8rem] font-medium text-destructive ">
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <Label className="">Senha</Label>
+                  <div className="space-x-2">
+                    <Input
+                      type={show ? "text" : "password"}
+                      {...register("password")}
+                    />
+                  </div>
+                  {errors.password && (
+                    <p className="text-[0.8rem] font-medium text-destructive">
+                      {errors.password.message}
+                    </p>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <Label className="">Confirmar senha</Label>
+                  <div className="flex space-x-2">
+                    <Input
+                      type={show ? "text" : "password"}
+                      {...register("confirmPassword")}
+                      className={errors.email && "text-destructive "}
+                    />
                     <Button
-                      variant="outline"
-                      size="lg"
-                      className=" w-full text-center gap-1.5"
+                      type="button"
+                      size="icon"
+                      variant="secondary"
+                      className="w-9 text-accent-foreground"
+                      onClick={() => {
+                        if (show) {
+                          setShow(false);
+                        } else {
+                          setShow(true);
+                        }
+                      }}
                     >
-                      <Github size="16" />
-                      Github
+                      {!show ? <Eye size={18} /> : <EyeOff size={18} />}
                     </Button>
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full text-center gap-1.5"
+                  </div>
+                  {errors.confirmPassword && (
+                    <p className="text-[0.8rem] font-medium text-destructive">
+                      {errors.confirmPassword.message}
+                    </p>
+                  )}
+                </div>
+                <div className="space-x-2">
+                  <Checkbox required className="w-4 h-4" />
+                  <Label className="text-xs sm:mx-auto sm:max-w-sm">
+                    Você concorda com os nossos{" "}
+                    <a
+                      className="underline hover:text-scale-1100"
+                      href="https://supabase.com/terms"
                     >
-                      <Lock size="16" />
-                      Google
-                    </Button>
-                  </div>
-                </CardHeader>
-                <div className="relative mb-4">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-scale-700" />
-                  </div>
-                  <div className="relative flex justify-center text-sm">
-                    <span className="bg-card px-2 text-sm text-scale-1200">
-                      ou
-                    </span>
-                  </div>
+                      Termos de Serviço
+                    </a>{" "}
+                    e a nossa{""}
+                    <br className="hidden sm:inline" />
+                    <a
+                      className="underline hover:text-scale-1100"
+                      href="https://supabase.com/privacy"
+                    >
+                      Política de Privacidade
+                    </a>
+                  </Label>
                 </div>
               </>
             )}
-            <form
-              onSubmit={handleSubmit(signData)}
-              className={`flex flex-col gap-4 mt-4`}
-            >
-              <div className="space-y-2">
-                <Label htmlFor="nome">Nome</Label>
-                <div>
-                  <Input
-                    type="text"
-                    autoComplete="name"
-                    placeholder="insira o seu nome"
-                    {...register("nome")}
-                  />
-                </div>
-                {errors.nome && (
-                  <p className="text-[0.8rem] font-medium text-destructive ">
-                    {errors.nome.message}
-                  </p>
+            {next && (
+              <Button size="lg" className="w-full text-accent-foreground">
+                {delay ? (
+                  <CircleDashed className="animate-spin" />
+                ) : (
+                  "Criar agora"
                 )}
-              </div>{" "}
-              <div className="space-y-2">
-                <Label htmlFor="username">username</Label>
-                <div>
-                  <Input
-                    type="text"
-                    placeholder="insira o seu username"
-                    autoComplete="username"
-                    {...register("username")}
-                  />
-                </div>
-                {errors.username && (
-                  <p className="text-[0.8rem] font-medium text-destructive ">
-                    {errors.username.message}
-                  </p>
-                )}
-              </div>
-              {next && (
-                <>
-                  <div className="space-y-2">
-                    <Label className="">E-mail</Label>
-                    <div>
-                      <Input
-                        type="email"
-                        autoComplete="email"
-                        placeholder="insira o seu e-mail"
-                        {...register("email")}
-                        className={errors.email && ""}
-                      />
-                    </div>
-                    {errors.email && (
-                      <p className="text-[0.8rem] font-medium text-destructive ">
-                        {errors.email.message}
-                      </p>
-                    )}
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="">Senha</Label>
-                    <div className="space-x-2">
-                      <Input
-                        type={show ? "text" : "password"}
-                        {...register("password")}
-                      />
-                    </div>
-                    {errors.password && (
-                      <p className="text-[0.8rem] font-medium text-destructive">
-                        {errors.password.message}
-                      </p>
-                    )}
-                  </div>
-                  <div className="space-y-2">
-                    <Label className="">Confirmar senha</Label>
-                    <div className="flex space-x-2">
-                      <Input
-                        type={show ? "text" : "password"}
-                        {...register("confirmPassword")}
-                        className={errors.email && "text-destructive "}
-                      />
-                      <Button
-                        type="button"
-                        size="icon"
-                        variant="secondary"
-                        className="w-9 text-accent-foreground"
-                        onClick={() => {
-                          if (show) {
-                            setShow(false);
-                          } else {
-                            setShow(true);
-                          }
-                        }}
-                      >
-                        {!show ? <Eye size={18} /> : <EyeOff size={18} />}
-                      </Button>
-                    </div>
-                    {errors.confirmPassword && (
-                      <p className="text-[0.8rem] font-medium text-destructive">
-                        {errors.confirmPassword.message}
-                      </p>
-                    )}
-                  </div>
-                  <div className="space-x-2">
-                    <Checkbox required className="w-4 h-4" />
-                    <Label className="text-xs sm:mx-auto sm:max-w-sm">
-                      Você concorda com os
-                      <a
-                        className="underline hover:text-scale-1100"
-                        href="https://supabase.com/terms"
-                      >
-                        {" "}
-                        Termos de Serviço
-                      </a>{" "}
-                      e a
-                      <a
-                        className="underline hover:text-scale-1100"
-                        href="https://supabase.com/privacy"
-                      >
-                        Política de Privacidade
-                      </a>{" "}
-                      do jobOn
-                    </Label>
-                  </div>
-                </>
-              )}
-              {next && (
-                <Button size="lg" className="w-full text-accent-foreground">
-                  {delay ? (
-                    <CircleDashed className="animate-spin" />
-                  ) : (
-                    "Criar agora"
-                  )}
-                </Button>
-              )}
-            </form>
-            {!next && (
-              <Button
-                size="lg"
-                className="mt-4 w-full text-accent-foreground gap-2"
-                onClick={() => setNext(true)}
-              >
-                Criar <ArrowRight size={17.5} />
               </Button>
             )}
-            <div className="sm:text-center text-muted-foreground">
-              <div className="mx-auto my-8 text-sm">
-                <div>
-                  <span>Já tens uma conta? </span>
-                  <Link
-                    className="underline transition hover:text-scale-1100"
-                    to="/entrar"
-                  >
-                    Entre agora
-                  </Link>
-                </div>
-              </div>
-            </div>
+          </form>
+          {!next && (
+            <Button
+              size="lg"
+              className="mt-4 w-full text-accent-foreground gap-2"
+              onClick={() => setNext(true)}
+            >
+              Criar <ArrowRight size={17.5} />
+            </Button>
+          )}
+          <div className="sm:text-center text-muted-foreground">
+            <p className="mx-auto my-8 text-sm">
+              Não tem uma conta?{"  "}
+              <Link
+                className="underline transition text-foreground hover:text-accent-foreground"
+                to="/entrar"
+              >
+                Entre agora
+              </Link>
+            </p>
           </div>
         </div>
       </div>
-      {/* <div className="grid items-center justify-center">
-        {output && (
-          <pre className="text-sm bg-zinc-800 text-zinc-100 p-6 rounded-lg max-w-lg overflow-hidden">
-            {output}
-          </pre>
-        )}
-      </div> */}
+       <Comment person="Acassia Namboje">
+        <>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum labore doloremque reiciendis voluptatibus nobis inventore temporibus aspernatur explicabo illum veniam</>
+      </Comment>
     </div>
   );
 }
