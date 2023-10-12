@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import { Separator } from "@/components/ui/separator";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -10,9 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Menu, Search,Bell,Inbox } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import {  Search,Bell,Inbox } from "lucide-react";
 
 export default function Dashboard() {
   return (
