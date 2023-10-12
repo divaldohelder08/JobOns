@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Copyright } from "lucide-react";
-import Container from "./Container";
+import Container from "@/components/Container";
 import { Link } from "react-router-dom";
 
 const links = [

@@ -1,4 +1,4 @@
-import Container from "@/components/Home/Container";
+import Container from "@/components/Container";
 import { Separator } from "@/components/ui/separator";
 // // import { Input } from "@/components/ui/input";
 import Hero from "@/components/Home/Hero";

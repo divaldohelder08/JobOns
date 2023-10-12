@@ -1,6 +1,6 @@
 import { ShoppingCart,Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Container from "./Container";
+import Container from "@/components/Container";
 import { ModeToggle } from "../Mode";
 import { PerfilButton } from "@/components/PerfilButton";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";

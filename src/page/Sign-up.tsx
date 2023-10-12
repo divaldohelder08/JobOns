@@ -1,5 +1,5 @@
 import { api } from "@/Api/Api";
-import Comment from "@/components/Comment";
+import Comment from "@/components//sign/Comment";
 import { Button } from "@/components/ui/button";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";

@@ -4,6 +4,7 @@ import Signin from "@/page/Sign-in";
 import Signup from "@/page/Sign-up";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Otp from "./page/Otp";
+import Dashboard from "./page/Dashboard";
 export default function Routes() {
   const rotas = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ export default function Routes() {
     {
       path: "/otg",
       element: <Otp />,
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
     },
   ]);
   return (
