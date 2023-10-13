@@ -2,21 +2,37 @@ import Container from "@/components/Container";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
-   Dialog,
-   DialogContent,
-   DialogDescription,
-   DialogFooter,
-   DialogHeader,
-   DialogTitle,
-   DialogTrigger,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
-import { Bell, GraduationCap, Search, Webhook, Wrench } from "lucide-react";
+import {
+  Backpack,
+  Bell,
+  GraduationCap,
+  Laptop,
+  Search,
+  Webhook,
+  Wrench,
+  Zap
+} from "lucide-react";
+import { Link } from "react-router-dom";
+
+type data = {
+  label: string;
+  to: string;
+  icon: JSX.Element;
+};
 
 type routeData = {
   label: string;
   to: string;
   icon: JSX.Element;
-  class?: routeData[];
+  curso?: data[];
 };
 
 const routes: routeData[] = [
@@ -25,20 +41,30 @@ const routes: routeData[] = [
     icon: <Webhook size={18} />,
     to: "Dashboard",
   },
-  //   {
-  //     label: "Turmas",
-  //     icon: <Backpack size={18} />,
-  //     to: "Turmas",
-  //   },
+  {
+    label: "Turmas",
+    icon: <Backpack size={18} />,
+    to: "Turmas",
+  },
   {
     label: "Turmas",
     icon: <GraduationCap size={18} />,
     to: "Turmas",
-    class: [
+    curso: [
       {
-        label: "Mecanica",
+        label: "Informática",
+        icon: <Laptop size={18} />,
+        to: "info",
+      },
+      {
+        label: "Eletricidade",
+        icon: <Zap size={18} />,
+        to: "el",
+      },
+      {
+        label: "Mecânica",
         icon: <Wrench size={18} />,
-        to: "mecanic",
+        to: "mec",
       },
     ],
   },
@@ -118,9 +144,32 @@ export default function Dashboard() {
               {routes?.map((e, key) => {
                 return (
                   <li key={key}>
-                     {
-                        
-                     }
+                    {e.curso !== undefined ? (
+                      <details>
+                        <summary>{e.label}</summary>
+                        <ul>
+                          {e.curso.map((sub, key) => {
+                            return (
+                              <li
+                                key={key}
+                                className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex  gap-3"
+                              >
+                                {sub.icon}
+                                {sub.label}
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </details>
+                    ) : (
+                      <Link
+                        to={e.to}
+                        className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex  gap-3"
+                      >
+                        {e.icon}
+                        {e.label}
+                      </Link>
+                    )}
                   </li>
                 );
               })}
