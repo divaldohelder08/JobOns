@@ -20,7 +20,7 @@ import {
   Wrench,
   Zap,
   DraftingCompass,
-  
+
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -67,6 +67,11 @@ const routes: routeData[] = [
         label: "Mecânica",
         icon: <Wrench size={18} />,
         to: "mec",
+      },
+      {
+        label: "Construção civil",
+        icon: <DraftingCompass size={18} />,
+        to: "cv",
       },
     ],
   },
