@@ -44,7 +44,7 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
-    "lucide-react": "^0.262.0",
+    "lucide-react": "^0.287.0",
     "openai": "^4.4.0",
     "otp-input-react": "^0.3.0",
     "qrcode.react": "^3.1.0",

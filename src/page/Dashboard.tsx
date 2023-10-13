@@ -18,7 +18,9 @@ import {
   Search,
   Webhook,
   Wrench,
-  Zap
+  Zap,
+  DraftingCompass,
+  
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -145,14 +147,16 @@ export default function Dashboard() {
                 return (
                   <li key={key}>
                     {e.curso !== undefined ? (
-                      <details>
-                        <summary>{e.label}</summary>
+                      <details className="items-center w-full">
+                        <summary className="text-muted-foreground font-medium items-center  px-3 py-2 text-center w-full">
+                          {e.label}
+                        </summary>
                         <ul>
                           {e.curso.map((sub, key) => {
                             return (
                               <li
                                 key={key}
-                                className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex  gap-3"
+                                className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex  gap-3 w-full"
                               >
                                 {sub.icon}
                                 {sub.label}
@@ -164,7 +168,7 @@ export default function Dashboard() {
                     ) : (
                       <Link
                         to={e.to}
-                        className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex  gap-3"
+                        className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex gap-3 w-fulla"
                       >
                         {e.icon}
                         {e.label}
