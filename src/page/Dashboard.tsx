@@ -10,6 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Backpack,
   Bell,
@@ -22,7 +23,6 @@ import {
   Zap,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-
 type data = {
   label: string;
   icon: JSX.Element;
@@ -31,7 +31,7 @@ type data = {
 
 type routeData = {
   label: string;
-  to: string;
+  tag: string;
   icon: JSX.Element;
   curso?: data[];
 };
@@ -40,17 +40,17 @@ const routes: routeData[] = [
   {
     label: "Dashboard",
     icon: <Webhook size={18} />,
-    to: "Dashboard",
+    tag: "Dashboard",
   },
   {
     label: "Some",
     icon: <Backpack size={18} />,
-    to: "some",
+    tag: "some",
   },
   {
     label: "Turmas",
     icon: <GraduationCap size={18} />,
-    to: "Turmas",
+    tag: "Turmas",
     curso: [
       {
         label: "Informática",
@@ -77,7 +77,12 @@ const routes: routeData[] = [
   {
     label: "Novidades",
     icon: <Backpack size={18} />,
-    to: "News",
+    tag: "News",
+  },
+  {
+    label: "Configurações",
+    icon: <Backpack size={18} />,
+    tag: "Conf",
   },
 ];
 
@@ -148,16 +153,16 @@ export default function Dashboard() {
           </div>
         </Container>
       </header>
-      <main className="h-full w-full flex">
+      <div className="h-full w-full flex">
         <aside className="h-full w-60 text-card-foreground p-1 mx-auto border-r bg-background/95 ">
           <nav className="pb-1 relative">
             <ul className="w-full space-y-1 text-accent-foreground/60">
               {routes?.map((e, key) => {
                 return (
-                  <li key={key}>
+                  <li key={key} className="">
                     {e.curso !== undefined ? (
                       <details className="items-center w-full">
-                        <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full">
+                        <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full ">
                           <span className="gap-2 flex items-center">
                             {e.icon}
                             {e.label}
@@ -170,12 +175,12 @@ export default function Dashboard() {
                                 className="items-center w-full"
                                 key={key}
                               >
-                                <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex  gap-3">
+                                <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex  gap-3 ">
                                   {sub.icon}
                                   {sub.label}
                                 </summary>
                                 <ul className="pl-4">
-                                  {sub.turmas?.map((sub1,index)=>{
+                                  {sub.turmas?.map((sub1, index) => {
                                     return (
                                       <Link
                                         to={sub1}
@@ -195,8 +200,8 @@ export default function Dashboard() {
                       </details>
                     ) : (
                       <Link
-                        to={e.to}
-                        className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex gap-3 w-full"
+                        to={e.tag}
+                        className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex gap-3 w-full hover:bg-accent hover:text-accent-foreground"
                       >
                         {e.icon}
                         {e.label}
@@ -208,8 +213,19 @@ export default function Dashboard() {
             </ul>
           </nav>
         </aside>
-        <div className="flex-1 overflow-y-scroll h-full">main</div>
-      </main>
+        <main className="flex-1 overflow-y-scroll h-full p-3 md:p-8 ">
+          <div className="w-full">
+            <h1 className="font-semibold text-2xl">DashBoard</h1>
+          </div>
+          <div className=''>
+            <Card className="max-w-[240px]">
+              <CardHeader>
+                <CardTitle>Some</CardTitle>
+              </CardHeader>
+            </Card>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
