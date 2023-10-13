@@ -21,7 +21,7 @@ type routeData = {
 
 const routes: routeData[] = [
   {
-    label: "Dasboard",
+    label: "Dashboard",
     icon: <Webhook size={18} />,
     to: "Dashboard",
   },
