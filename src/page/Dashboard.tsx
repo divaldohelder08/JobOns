@@ -13,21 +13,20 @@ import {
 import {
   Backpack,
   Bell,
+  DraftingCompass,
   GraduationCap,
   Laptop,
   Search,
   Webhook,
   Wrench,
   Zap,
-  DraftingCompass,
-
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type data = {
   label: string;
-  to: string;
   icon: JSX.Element;
+  turmas: string[];
 };
 
 type routeData = {
@@ -44,9 +43,9 @@ const routes: routeData[] = [
     to: "Dashboard",
   },
   {
-    label: "Turmas",
+    label: "Some",
     icon: <Backpack size={18} />,
-    to: "Turmas",
+    to: "some",
   },
   {
     label: "Turmas",
@@ -56,24 +55,29 @@ const routes: routeData[] = [
       {
         label: "Informática",
         icon: <Laptop size={18} />,
-        to: "info",
+        turmas: ["IG10C", "IG11A", "IG12A"],
       },
       {
         label: "Eletricidade",
         icon: <Zap size={18} />,
-        to: "el",
+        turmas: ["EL10A", "IG11A", "IG12A"],
       },
       {
         label: "Mecânica",
         icon: <Wrench size={18} />,
-        to: "mec",
+        turmas: ["IG10C", "IG11A", "IG12A"],
       },
       {
         label: "Construção civil",
         icon: <DraftingCompass size={18} />,
-        to: "cv",
+        turmas: ["IG10C", "IG11A", "IG12A"],
       },
     ],
+  },
+  {
+    label: "Novidades",
+    icon: <Backpack size={18} />,
+    to: "News",
   },
 ];
 
@@ -153,19 +157,38 @@ export default function Dashboard() {
                   <li key={key}>
                     {e.curso !== undefined ? (
                       <details className="items-center w-full">
-                        <summary className="text-muted-foreground font-medium items-center  px-3 py-2 text-center w-full">
-                          {e.label}
+                        <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full">
+                          <span className="gap-2 flex items-center">
+                            {e.icon}
+                            {e.label}
+                          </span>
                         </summary>
-                        <ul>
+                        <ul className="pl-4">
                           {e.curso.map((sub, key) => {
                             return (
-                              <li
+                              <details
+                                className="items-center w-full"
                                 key={key}
-                                className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex  gap-3 w-full"
                               >
-                                {sub.icon}
-                                {sub.label}
-                              </li>
+                                <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex  gap-3">
+                                  {sub.icon}
+                                  {sub.label}
+                                </summary>
+                                <ul className="pl-4">
+                                  {sub.turmas?.map((sub1,index)=>{
+                                    return (
+                                      <Link
+                                        to={sub1}
+                                        key={index}
+                                        className="font-medium items-center  px-3 py-1 text-center text-sm inline-flex gap-2 w-full"
+                                      >
+                                        <Backpack size={16} />
+                                        {sub1}
+                                      </Link>
+                                    );
+                                  })}
+                                </ul>
+                              </details>
                             );
                           })}
                         </ul>
@@ -173,7 +196,7 @@ export default function Dashboard() {
                     ) : (
                       <Link
                         to={e.to}
-                        className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex gap-3 w-fulla"
+                        className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex gap-3 w-full"
                       >
                         {e.icon}
                         {e.label}
