@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +11,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Backpack,
   Bell,
@@ -159,9 +159,9 @@ export default function Dashboard() {
             <ul className="w-full space-y-1 text-accent-foreground/60">
               {routes?.map((e, key) => {
                 return (
-                  <li key={key} className="">
+                  <li key={key} >
                     {e.curso !== undefined ? (
-                      <details className="items-center w-full">
+                      <details className="items-center w-full before:h-px before:w-4 before:t-3 before:absolute before:bg-primary">
                         <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full ">
                           <span className="gap-2 flex items-center">
                             {e.icon}
@@ -217,7 +217,25 @@ export default function Dashboard() {
           <div className="w-full">
             <h1 className="font-semibold text-2xl">DashBoard</h1>
           </div>
-          <div className=''>
+          <div className="grid grid-cols-4 gap-6 py-4">
+            <Card className="max-w-[240px]">
+              <CardHeader>
+                <CardTitle className="flex justify-between">Some<Zap className="text-muted-foreground" size={20} />
+
+                </CardTitle>
+              </CardHeader>
+            </Card>
+            <Card className="max-w-[240px]">
+              <CardHeader>
+                <CardTitle>Some</CardTitle>
+              </CardHeader>
+            </Card>
+
+            <Card className="max-w-[240px]">
+              <CardHeader>
+                <CardTitle>Some</CardTitle>
+              </CardHeader>
+            </Card>
             <Card className="max-w-[240px]">
               <CardHeader>
                 <CardTitle>Some</CardTitle>
