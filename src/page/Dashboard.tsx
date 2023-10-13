@@ -159,55 +159,59 @@ export default function Dashboard() {
             <ul className="w-full space-y-1 text-accent-foreground/60">
               {routes?.map((e, key) => {
                 return (
-                  <li key={key} >
+                  <>
                     {e.curso !== undefined ? (
-                      <details className="items-center w-full before:h-px before:w-4 before:t-3 before:absolute before:bg-primary">
-                        <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full ">
-                          <span className="gap-2 flex items-center">
-                            {e.icon}
-                            {e.label}
-                          </span>
-                        </summary>
-                        <ul className="pl-4">
-                          {e.curso.map((sub, key) => {
-                            return (
-                              <details
-                                className="items-center w-full"
-                                key={key}
-                              >
-                                <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex  gap-3 ">
-                                  {sub.icon}
-                                  {sub.label}
-                                </summary>
-                                <ul className="pl-4">
-                                  {sub.turmas?.map((sub1, index) => {
-                                    return (
-                                      <Link
-                                        to={sub1}
-                                        key={index}
-                                        className="font-medium items-center  px-3 py-1 text-center text-sm inline-flex gap-2 w-full"
-                                      >
-                                        <Backpack size={16} />
-                                        {sub1}
-                                      </Link>
-                                    );
-                                  })}
-                                </ul>
-                              </details>
-                            );
-                          })}
-                        </ul>
-                      </details>
+                      <li key={key} className="relative">
+                        <details className="items-center w-full">
+                          <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full after:absolute after:w-px after:h-7 after:-top-3 after:bg-primary">
+                            <span className="gap-2 flex items-center">
+                              {e.icon}
+                              {e.label}
+                            </span>
+                          </summary>
+                          <ul className="pl-4 relative">
+                            {e.curso.map((sub, key) => {
+                              return (
+                                <details
+                                  className="items-center w-full relative"
+                                  key={key}
+                                >
+                                  <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex  gap-3 before:h-px before:w-4 before:t-3 before:absolute before:bg-primary before:-left-3 ">
+                                    {sub.icon}
+                                    {sub.label}
+                                  </summary>
+                                  <ul className="pl-4">
+                                    {sub.turmas?.map((sub1, index) => {
+                                      return (
+                                        <Link
+                                          to={sub1}
+                                          key={index}
+                                          className="font-medium items-center  px-3 py-1 text-center text-sm inline-flex gap-2 w-full before:h-px before:w-4 before:t-3 before:absolute before:bg-primary before:-left-3"
+                                        >
+                                          <Backpack size={16} />
+                                          {sub1}
+                                        </Link>
+                                      );
+                                    })}
+                                  </ul>
+                                </details>
+                              );
+                            })}
+                          </ul>
+                        </details>
+                      </li>
                     ) : (
-                      <Link
-                        to={e.tag}
-                        className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex gap-3 w-full hover:bg-accent hover:text-accent-foreground"
-                      >
-                        {e.icon}
-                        {e.label}
-                      </Link>
+                      <li key={key} className="relative">
+                        <Link
+                          to={e.tag}
+                          className="text-muted-foreground font-medium items-center  px-3 py-2 text-center inline-flex gap-3 w-full hover:bg-accent hover:text-accent-foreground"
+                        >
+                          {e.icon}
+                          {e.label}
+                        </Link>{" "}
+                      </li>
                     )}
-                  </li>
+                  </>
                 );
               })}
             </ul>
@@ -220,8 +224,9 @@ export default function Dashboard() {
           <div className="grid grid-cols-4 gap-6 py-4">
             <Card className="max-w-[240px]">
               <CardHeader>
-                <CardTitle className="flex justify-between">Some<Zap className="text-muted-foreground" size={20} />
-
+                <CardTitle className="flex justify-between">
+                  Some
+                  <Zap className="text-muted-foreground" size={20} />
                 </CardTitle>
               </CardHeader>
             </Card>
