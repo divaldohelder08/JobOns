@@ -161,9 +161,9 @@ export default function Dashboard() {
                 return (
                   <>
                     {e.curso !== undefined ? (
-                      <li key={key} className="relative">
+                      <li key={key} className="relative tree">
                         <details className="items-center w-full">
-                          <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full after:absolute after:w-px after:h-7 after:-top-3 after:bg-primary">
+                          <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full">
                             <span className="gap-2 flex items-center">
                               {e.icon}
                               {e.label}
