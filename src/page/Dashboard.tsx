@@ -201,7 +201,7 @@ export default function Dashboard() {
               <CardHeader className="pb-3">
                 <CardTitle className="flex justify-between">
                   Turmas
-                  <Zap className="text-muted-foreground" size={16} />
+                  <GraduationCap className="text-muted-foreground" size={16} />
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -239,7 +239,7 @@ export default function Dashboard() {
                 <CardTitle>Overview</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="h-60 bg-red-500 w-full"/>
+                <div className="bg-red-500 min-h-full w-full"></div>
               </CardContent>
             </Card>
             <Card className="col-span-3">
@@ -248,9 +248,9 @@ export default function Dashboard() {
                 <CardDescription> Destaques desse trimestre</CardDescription>
               </CardHeader>
               <CardContent>
-                <ScrollArea>
+                <ScrollArea className="h-60">
                   <ScrollBar />
-                  <div className="flex items-center my-2">
+                  <div className="flex items-center my-2 pr-4">
                     <Avatar className="h-8 w-8">
                       <AvatarImage />
                       <AvatarFallback className="text-sm">DH</AvatarFallback>
@@ -263,7 +263,7 @@ export default function Dashboard() {
                     </div>
                     <div className="ml-auto font-medium">18</div>
                   </div>
-                  <div className="flex items-center my-2">
+                  <div className="flex items-center my-2  pr-4">
                     <Avatar className="h-8 w-8">
                       <AvatarImage />
                       <AvatarFallback className="text-sm">OM</AvatarFallback>
@@ -276,7 +276,33 @@ export default function Dashboard() {
                     </div>
                     <div className="ml-auto font-medium">19</div>
                   </div>
-                  <div className="flex items-center my-2">
+                  <div className="flex items-center my-2  pr-4">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage />
+                      <AvatarFallback className="text-sm">DH</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Divaldo Hélder
+                      </p>
+                      <p className="text-sm text-muted-foreground">63703</p>
+                    </div>
+                    <div className="ml-auto font-medium">18</div>
+                  </div>
+                  <div className="flex items-center my-2  pr-4">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage />
+                      <AvatarFallback className="text-sm">OM</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Olivia Martin
+                      </p>
+                      <p className="text-sm text-muted-foreground">67084</p>
+                    </div>
+                    <div className="ml-auto font-medium">19</div>
+                  </div>
+                  <div className="flex items-center my-2  pr-4">
                     <Avatar className="h-8 w-8">
                       <AvatarImage />
                       <AvatarFallback className="text-sm">JL</AvatarFallback>
@@ -289,7 +315,7 @@ export default function Dashboard() {
                     </div>
                     <div className="ml-auto font-medium">13</div>
                   </div>
-                  <div className="flex items-center my-2">
+                  <div className="flex items-center my-2  pr-4">
                     <Avatar className="h-8 w-8">
                       <AvatarImage />
                       <AvatarFallback className="text-sm">IN</AvatarFallback>
@@ -302,7 +328,7 @@ export default function Dashboard() {
                     </div>
                     <div className="ml-auto font-medium">12</div>
                   </div>
-                  <div className="flex items-center my-2">
+                  <div className="flex items-center my-2  pr-4">
                     <Avatar className="h-8 w-8">
                       <AvatarImage />
                       <AvatarFallback className="text-sm">WK</AvatarFallback>
@@ -315,7 +341,7 @@ export default function Dashboard() {
                     </div>
                     <div className="ml-auto font-medium">18</div>
                   </div>
-                  <div className="flex items-center my-2">
+                  <div className="flex items-center my-2  pr-4">
                     <Avatar className="h-8 w-8">
                       <AvatarImage />
                       <AvatarFallback className="text-sm">SD</AvatarFallback>
