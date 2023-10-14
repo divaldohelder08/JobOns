@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -11,6 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Progress } from "@/components/ui/progress";
 import {
   Backpack,
   Bell,
@@ -163,23 +164,23 @@ export default function Dashboard() {
                     {e.curso !== undefined ? (
                       <li
                         key={key}
-                        className="relative tree before:h-px before:w-4 before:top-3 after:h-7 after:w-px after:-top-3"
+                        className="relative tree before:h-full before:w-px before:top-3 after:h-7 after:w-px after:-top-3"
                       >
-                        <details className="items-center w-full">
+                        <details className="w-full">
                           <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full">
                             <span className="gap-2 flex items-center">
                               {e.icon}
                               {e.label}
                             </span>
                           </summary>
-                          <ul className="pl-4 relative">
+                          <ul className="ml-[1.30rem] border-l border-muted relative">
                             {e.curso.map((sub, key) => {
                               return (
                                 <details
                                   className="items-center w-full relative"
                                   key={key}
                                 >
-                                  <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex  gap-3 before:h-px before:w-4 before:t-3 before:absolute before:bg-primary before:-left-3 ">
+                                  <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex  gap-3">
                                     {sub.icon}
                                     {sub.label}
                                   </summary>
@@ -189,9 +190,9 @@ export default function Dashboard() {
                                         <Link
                                           to={sub1}
                                           key={index}
-                                          className="font-medium items-center  px-3 py-1 text-center text-sm inline-flex gap-2 w-full before:h-px before:w-4 before:t-3 before:absolute before:bg-primary before:-left-3"
+                                          className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-primary before:-left-0"
                                         >
-                                          <Backpack size={16} />
+                                          <Backpack size={16} className="text-primary"/>
                                           {sub1}
                                         </Link>
                                       );
@@ -228,9 +229,12 @@ export default function Dashboard() {
             <Card className="max-w-[240px]">
               <CardHeader>
                 <CardTitle className="flex justify-between">
-                  Some
+                  Aproveitamento
                   <Zap className="text-muted-foreground" size={20} />
                 </CardTitle>
+                <CardContent >
+                  <Progress value={57} />
+                </CardContent>
               </CardHeader>
             </Card>
             <Card className="max-w-[240px]">
