@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import { Separator } from "@/components/ui/separator";
 // // import { Input } from "@/components/ui/input";
-import Hero from "@/components/Home/Hero";
+import Hero from "@/components/Hero";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,7 +15,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ArrowRight, Menu, Search, User } from "lucide-react";
 import { Link } from "react-router-dom";
-import Footer from "@/components/Home/Footer";
+import Footer from "@/components/Footer";
 
 const routes = [
   {

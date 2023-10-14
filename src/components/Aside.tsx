@@ -18,7 +18,7 @@ type routeData = {
   label: string;
   tag: string;
   icon: JSX.Element;
-  curso?: data[];
+  area?: data[];
 };
 
 const routes: routeData[] = [
@@ -36,7 +36,7 @@ const routes: routeData[] = [
     label: "Cursos",
     icon: <GraduationCap size={18} />,
     tag: "Cursos",
-    curso: [
+    area: [
       {
         label: "Informática",
         icon: <Laptop size={18} />,
@@ -79,23 +79,23 @@ export default function Aside() {
           {routes?.map((e, key) => {
             return (
               <>
-                {e.curso !== undefined ? (
+                {e.area !== undefined ? (
                   <li key={key} className="relative">
                     <details className="w-full">
-                      <summary className="block relative cursor-pointer items-center  text-muted-foreground font-medium px-3 py-2 w-full">
-                        <span className="gap-2 flex items-center">
+                      <summary
+                        className="relative cursor-pointer  text-muted-foreground font-medium px-3 py-2 w-full h-9 gap-3 flex items-center text-sm"
+                      >
                           {e.icon}
                           {e.label}
-                        </span>
                       </summary>
                       <ul className="ml-[1.30rem] border-l border-muted relative">
-                        {e.curso.map((sub, key) => {
+                        {e.area.map((sub, key) => {
                           return (
                             <details
                               className="items-center w-full relative"
                               key={key}
                             >
-                              <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex  gap-3">
+                              <summary className="relative cursor-pointer text-muted-foreground font-medium px-3 py-2 w-full items-center text-center inline-flex gap-3 h-9 text-sm">
                                 {sub.icon}
                                 {sub.label}
                               </summary>
@@ -126,8 +126,7 @@ export default function Aside() {
                   <li key={key} className="relative">
                     <Link
                       to={e.tag}
-                      className="text-muted-foreground font-medium items-center  px-4 py-2 text-center inline-flex gap-3 w-full hover:bg-primary/75 hover:text-accent-foreground  
-                          rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9"
+                      className="text-muted-foreground font-medium items-center  px-4 py-2 text-center inline-flex gap-3 w-full hover:bg-primary/75 hover:text-accent-foreground rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9"
                     >
                       {e.icon}
                       {e.label}

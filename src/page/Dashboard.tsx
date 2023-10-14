@@ -1,6 +1,6 @@
 import Aside from "@/components/Aside";
-import Container from "@/components/Container";
-import Footer from "@/components/Home/Footer";
+import Header from "@/components/Dashboard/Header";
+import Footer from "@/components/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Card,
@@ -10,7 +10,6 @@ import {
   CardSubTitle,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import {
@@ -19,34 +18,10 @@ import {
   Zap,
 } from "lucide-react";
 
-
 export default function Dashboard() {
   return (
     <div className="h-screen w-full overflow-hidden">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
-        <Container>
-          <div className="container flex h-14 items-center">
-            <h1 className="text-xl font-bold m-5">
-              Job<b className="text-primary">Ons</b>
-            </h1>
-            <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center gap-2">
-                  <Input
-                    type="search"
-                    className="font-medium w-[300px]"
-                    placeholder="Encontre alunos, turmas..."
-                  />
-                  <Avatar className="h-8 w-8">
-                    <AvatarImage />
-                    <AvatarFallback className="text-sm">DH</AvatarFallback>
-                  </Avatar>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </header>
+     <Header />
       <div className="h-full w-full flex">
         <Aside />
         <main className="flex-1 overflow-y-scroll h-full p-3 md:p-8 mt-2 space-y-4 ">

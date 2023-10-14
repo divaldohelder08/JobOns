@@ -5,7 +5,7 @@ import Signup from "@/page/Sign-up";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Otp from "./page/Otp";
 import Dashboard from "./page/Dashboard";
-import Curso from "./page/Curso";
+import Area from "./page/Area";
 export default function Routes() {
   const rotas = createBrowserRouter([
     {
@@ -30,8 +30,8 @@ export default function Routes() {
       element: <Dashboard />,
     },
     {
-      path: "/dashboard/some",
-      element: <Curso />,
+      path: "/dashboard/:area/:turma",
+      element: <Area />,
     },
   ]);
   return (
