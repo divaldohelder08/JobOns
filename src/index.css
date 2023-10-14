@@ -59,7 +59,4 @@
   body {
     @apply bg-background text-foreground/75;
   }
-  .tree {
-    @apply after:absolute after:-left-3 after:bg-primary before:absolute before:-left-3 before:bg-primary
-  }
 }
