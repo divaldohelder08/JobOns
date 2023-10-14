@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import {
   Backpack,
   DraftingCompass,
@@ -99,7 +100,7 @@ export default function Dashboard() {
                 <div className="flex items-center gap-2">
                   <Input
                     type="search"
-                    className="font-medium "
+                    className="font-medium w-[300px]"
                     placeholder="Encontre alunos, turmas..."
                   />
                   <Avatar className="h-8 w-8">
@@ -233,16 +234,102 @@ export default function Dashboard() {
             </Card>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-            <Card className="col-span-5">
+            <Card className="col-span-4">
               <CardHeader>
                 <CardTitle>Overview</CardTitle>
               </CardHeader>
+              <CardContent>
+                <div className="h-60 bg-red-500 w-full"/>
+              </CardContent>
             </Card>
-            <Card className="col-span-2">
+            <Card className="col-span-3">
               <CardHeader>
                 <CardTitle>Melhores alunos</CardTitle>
                 <CardDescription> Destaques desse trimestre</CardDescription>
               </CardHeader>
+              <CardContent>
+                <ScrollArea>
+                  <ScrollBar />
+                  <div className="flex items-center my-2">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage />
+                      <AvatarFallback className="text-sm">DH</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Divaldo Hélder
+                      </p>
+                      <p className="text-sm text-muted-foreground">63703</p>
+                    </div>
+                    <div className="ml-auto font-medium">18</div>
+                  </div>
+                  <div className="flex items-center my-2">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage />
+                      <AvatarFallback className="text-sm">OM</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Olivia Martin
+                      </p>
+                      <p className="text-sm text-muted-foreground">67084</p>
+                    </div>
+                    <div className="ml-auto font-medium">19</div>
+                  </div>
+                  <div className="flex items-center my-2">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage />
+                      <AvatarFallback className="text-sm">JL</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Jackson Lee
+                      </p>
+                      <p className="text-sm text-muted-foreground">68705</p>
+                    </div>
+                    <div className="ml-auto font-medium">13</div>
+                  </div>
+                  <div className="flex items-center my-2">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage />
+                      <AvatarFallback className="text-sm">IN</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Isabella Nguyen
+                      </p>
+                      <p className="text-sm text-muted-foreground">68070</p>
+                    </div>
+                    <div className="ml-auto font-medium">12</div>
+                  </div>
+                  <div className="flex items-center my-2">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage />
+                      <AvatarFallback className="text-sm">WK</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        William Kim
+                      </p>
+                      <p className="text-sm text-muted-foreground">88997</p>
+                    </div>
+                    <div className="ml-auto font-medium">18</div>
+                  </div>
+                  <div className="flex items-center my-2">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage />
+                      <AvatarFallback className="text-sm">SD</AvatarFallback>
+                    </Avatar>
+                    <div className="ml-4 space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        Sofia Davis
+                      </p>
+                      <p className="text-sm text-muted-foreground">59708</p>
+                    </div>
+                    <div className="ml-auto font-medium">15</div>
+                  </div>
+                </ScrollArea>
+              </CardContent>
             </Card>
           </div>
           <Footer />
