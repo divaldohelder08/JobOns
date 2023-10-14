@@ -5,6 +5,7 @@ import Signup from "@/page/Sign-up";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Otp from "./page/Otp";
 import Dashboard from "./page/Dashboard";
+import Curso from "./page/Curso";
 export default function Routes() {
   const rotas = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ export default function Routes() {
     {
       path: "/dashboard",
       element: <Dashboard />,
+    },
+    {
+      path: "/dashboard/some",
+      element: <Curso />,
     },
   ]);
   return (
