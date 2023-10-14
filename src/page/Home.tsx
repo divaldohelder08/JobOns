@@ -31,6 +31,8 @@ const routes = [
     label: "On Sale",
   },
 ];
+
+
 export default function Home() {
   return (
     <>

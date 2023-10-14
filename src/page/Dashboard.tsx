@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import Footer from "@/components/Home/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Card,
@@ -12,7 +13,6 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import {
   Backpack,
-  Copyright,
   DraftingCompass,
   GraduationCap,
   Laptop,
@@ -84,44 +84,6 @@ const routes: routeData[] = [
     tag: "Conf",
   },
 ];
-
-const links = [
-  {
-    href: "/termos",
-    label: "Termos",
-  },
-  {
-    href: "/docs",
-    label: "Docs",
-  },
-  {
-    href: "/privacidade",
-    label: "privacidade",
-  },
-  {
-    href: "/pricing",
-    label: "Pricing",
-  },
-  {
-    href: "/support",
-    label: "Support",
-  },
-  {
-    href: "/blog",
-    label: "Blog",
-  },
-  {
-    href: "/Changelog",
-    label: "Changelog",
-  },
-];
-
-
-
-
-
-
-
 
 export default function Dashboard() {
   return (
@@ -218,54 +180,38 @@ export default function Dashboard() {
             </ul>
           </nav>
         </aside>
-        <main className="flex-1 overflow-y-scroll h-full p-3 md:p-8 ">
+        <main className="flex-1 overflow-y-scroll h-full p-3 md:p-8 mt-2 space-y-4 ">
           <div className="w-full">
             <h1 className="font-semibold text-2xl">DashBoard</h1>
           </div>
-          <div className="py-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Card>
-              <CardHeader className="pb-3">
-                <CardTitle className="flex justify-between">
-                  Aproveitamento
-                  <Zap className="text-muted-foreground" size={20} />
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Progress value={57} className="w-full" />
-                <CardDescription>+20.1% from last month</CardDescription>
-              </CardContent>
-            </Card>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="pb-3">
                 <CardTitle className="flex justify-between">
                   Alunos
-                  <Users className="text-muted-foreground" size={20} />
+                  <Users className="text-muted-foreground" size={16} />
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <CardSubTitle>
-                  <Progress value={57} className="w-full" />
-                </CardSubTitle>{" "}
-                <CardDescription>+20.1% from last month</CardDescription>
+                <CardSubTitle>+2350</CardSubTitle>{" "}
               </CardContent>
             </Card>
-            <Card className="">
+            <Card>
               <CardHeader className="pb-3">
                 <CardTitle className="flex justify-between">
                   Turmas
-                  <Zap className="text-muted-foreground" size={20} />
+                  <Zap className="text-muted-foreground" size={16} />
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Progress value={57} className="w-full" />
-                <CardDescription>+20.1% from last month</CardDescription>
+                <CardSubTitle>16</CardSubTitle>
               </CardContent>
             </Card>
-            <Card className="">
+            <Card>
               <CardHeader className="pb-3">
                 <CardTitle className="flex justify-between">
                   Aproveitamento
-                  <Zap className="text-muted-foreground" size={20} />
+                  <Zap className="text-muted-foreground" size={16} />
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -273,36 +219,33 @@ export default function Dashboard() {
                 <CardDescription>+20.1% from last month</CardDescription>
               </CardContent>
             </Card>
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="flex justify-between">
+                  Aproveitamento
+                  <Zap className="text-muted-foreground" size={16} />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <Progress value={57} className="w-full" />
+                <CardDescription>+20.1% do trimestre passado</CardDescription>
+              </CardContent>
+            </Card>
           </div>
-          <footer>
-            {" "}
-            <Container className="border-t border-border">
-              <div className="pt-10 pb-28 flex flex-col justify-between text-sm font-medium transition-colors">
-                <ul className="my-3 flex  flex-wrap gap-4">
-                  {links?.map((e, key) => {
-                    return (
-                      <li className="">
-                        <Link
-                          key={key}
-                          to={e.href}
-                          className="hover:text-foreground/80 text-foreground/60"
-                        >
-                          {e.label}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <p className="flex items-center">
-                  <Copyright className="inline-flex mr-1" size="14" />
-                  2023{" "}
-                  <Link to={"s"} className="hover:underline">
-                    JobOn Inc.
-                  </Link>
-                </p>
-              </div>
-            </Container>
-          </footer>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+            <Card className="col-span-5">
+              <CardHeader>
+                <CardTitle>Overview</CardTitle>
+              </CardHeader>
+            </Card>
+            <Card className="col-span-2">
+              <CardHeader>
+                <CardTitle>Melhores alunos</CardTitle>
+                <CardDescription> Destaques desse trimestre</CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+          <Footer />
         </main>
       </div>
     </div>
