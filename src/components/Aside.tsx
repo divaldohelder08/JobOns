@@ -103,7 +103,7 @@ export default function Aside() {
                                 {sub.turmas?.map((sub1, index) => {
                                   return (
                                     <Link
-                                      to={sub1}
+                                      to={`${sub.label}/${sub1}`}
                                       key={index}
                                       className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-primary before:-left-0"
                                     >
