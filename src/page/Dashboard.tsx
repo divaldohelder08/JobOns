@@ -11,8 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { GraduationCap, Users, Zap } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { GraduationCap, Users, Zap,Activity } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 export default function Dashboard() {
   const data = [
@@ -114,7 +114,7 @@ export default function Dashboard() {
               <CardHeader className="pb-3">
                 <CardTitle className="flex justify-between">
                   Aproveitamento
-                  <Zap className="text-muted-foreground" size={16} />
+                  <Activity className="text-muted-foreground" size={16} />
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -159,7 +159,6 @@ export default function Dashboard() {
               </CardHeader>
               <CardContent>
                 <ScrollArea className="h-60">
-                  <ScrollBar />
                   <div className="flex items-center my-2 pr-4">
                     <Avatar className="h-8 w-8">
                       <AvatarImage />

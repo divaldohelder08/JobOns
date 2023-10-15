@@ -6,6 +6,7 @@ import {
   Webhook,
   Wrench,
   Zap,
+  Settings
 } from "lucide-react";
 import { Link } from "react-router-dom";
 type data = {
@@ -66,7 +67,7 @@ const routes: routeData[] = [
   },
   {
     label: "Configurações",
-    icon: <Backpack size={18} />,
+    icon: <Settings size={18} />,
     tag: "Conf",
   },
 ];
