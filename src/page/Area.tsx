@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { GraduationCap, Users, Zap,ChevronRight } from "lucide-react";
+import { GraduationCap, Users, Zap,ChevronRight,Activity } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 
@@ -123,7 +123,7 @@ const data = [
               <CardHeader className="pb-3">
                 <CardTitle className="flex justify-between">
                   Aproveitamento
-                  <Zap className="text-muted-foreground" size={16} />
+                  <Activity className="text-muted-foreground" size={16} />
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
