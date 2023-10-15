@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Otp from "./page/Otp";
 import Dashboard from "./page/Dashboard";
 import Area from "./page/Area";
+import Index from "./rechart";
 export default function Routes() {
   const rotas = createBrowserRouter([
     {
@@ -29,6 +30,11 @@ export default function Routes() {
       path: "/dashboard",
       element: <Dashboard />,
     },
+        {
+      path: "/ola2",
+      element: <Index />,
+    },
+    
     {
       path: "/dashboard/:area/:turma",
       element: <Area />,
