@@ -82,11 +82,9 @@ export default function Aside() {
                 {e.area !== undefined ? (
                   <li key={key} className="relative">
                     <details className="w-full">
-                      <summary
-                        className="relative cursor-pointer  text-muted-foreground font-medium px-3 py-2 w-full h-9 gap-3 flex items-center text-sm"
-                      >
-                          {e.icon}
-                          {e.label}
+                      <summary className="relative cursor-pointer  text-muted-foreground font-medium px-3 py-2 w-full h-9 gap-3 flex items-center text-sm">
+                        {e.icon}
+                        {e.label}
                       </summary>
                       <ul className="ml-[1.30rem] border-l border-muted relative">
                         {e.area.map((sub, key) => {
@@ -126,6 +124,7 @@ export default function Aside() {
                   <li key={key} className="relative">
                     <Link
                       to={e.tag}
+                      replace={true}
                       className="text-muted-foreground font-medium items-center  px-4 py-2 text-center inline-flex gap-3 w-full hover:bg-primary/75 hover:text-accent-foreground rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-9"
                     >
                       {e.icon}

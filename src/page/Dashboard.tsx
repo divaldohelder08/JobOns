@@ -12,16 +12,63 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import {
-  GraduationCap,
-  Users,
-  Zap,
-} from "lucide-react";
-
+import { GraduationCap, Users, Zap } from "lucide-react";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 export default function Dashboard() {
+  const data = [
+    {
+      name: "Jan",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Feb",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Mar",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Apr",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "May",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Jun",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Jul",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Aug",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Sep",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Oct",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Nov",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+    {
+      name: "Dec",
+      total: Math.floor(Math.random() * 20) + 4,
+    },
+  ];
+
   return (
     <div className="h-screen w-full overflow-hidden">
-     <Header />
+      <Header />
       <div className="h-full w-full flex">
         <Aside />
         <main className="flex-1 overflow-y-scroll h-full p-3 md:p-8 mt-2 space-y-4 ">
@@ -81,8 +128,28 @@ export default function Dashboard() {
               <CardHeader>
                 <CardTitle>Overview</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="bg-red-500 min-h-full w-full"></div>
+              <CardContent className="w-full h-[290px]">
+                <ResponsiveContainer className="w-full h-full">
+                  <BarChart data={data}>
+                    <XAxis
+                      dataKey="name"
+                      fontSize={12}
+                      tickLine={false}
+                      axisLine={false}
+                    />
+                    <YAxis
+                      fontSize={12}
+                      tickLine={false}
+                      axisLine={false}
+                      tickFormatter={(value) => `${value}`}
+                    />
+                    <Bar
+                      dataKey="total"
+                      radius={[4, 4, 0, 0]}
+                      className="fill-primary"
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
               </CardContent>
             </Card>
             <Card className="col-span-3">

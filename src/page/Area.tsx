@@ -17,7 +17,6 @@ import { GraduationCap, Users, Zap,ChevronRight } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 
-
 export default function Area() {
 const data = [
   {

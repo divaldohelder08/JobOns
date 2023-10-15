@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const links = [
   {
-    href: "/termos",
+    href: "/Dashboard/Eletricidade/EL10A",
     label: "Termos",
   },
 
