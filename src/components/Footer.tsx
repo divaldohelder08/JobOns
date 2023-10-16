@@ -26,6 +26,7 @@ const links = [
   },
 ];
 export default function Footer() {
+  console.log(import.meta.env.VITE_CURRENT_YEAR);
   return (
     <footer>
       {" "}
@@ -46,10 +47,9 @@ export default function Footer() {
               );
             })}
           </ul>
-          <p className="flex items-center">
-            <Copyright className="inline-flex mr-1" size="14" />
-            2023{" "}
-            <Link to={"s"} className="hover:underline">
+          <p className="flex items-center gap-1">
+            <Copyright className="inline-flex" size="14" />
+            {import.meta.env.VITE_CURRENT_YEAR}<Link to={"s"} className="hover:underline">
               JobOn Inc.
             </Link>
           </p>

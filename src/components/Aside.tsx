@@ -26,12 +26,12 @@ const routes: routeData[] = [
   {
     label: "Dashboard",
     icon: <Webhook size={18} />,
-    tag: "Dashboard",
+    tag: "/Dashboard",
   },
   {
     label: "Some",
     icon: <Backpack size={18} />,
-    tag: "some",
+    tag: "/some",
   },
   {
     label: "Cursos",
@@ -63,12 +63,12 @@ const routes: routeData[] = [
   {
     label: "Novidades",
     icon: <Backpack size={18} />,
-    tag: "News",
+    tag: "/News",
   },
   {
     label: "Configurações",
     icon: <Settings size={18} />,
-    tag: "Conf",
+    tag: "/Conf",
   },
 ];
 
@@ -102,7 +102,7 @@ export default function Aside() {
                                 {sub.turmas?.map((sub1, index) => {
                                   return (
                                     <Link
-                                      to={`${sub.label}/${sub1}`}
+                                      to={`/dashboard/${sub.label}/${sub1}`}
                                       key={index}
                                       className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-primary before:-left-0"
                                     >
