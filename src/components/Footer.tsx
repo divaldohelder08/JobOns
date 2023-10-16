@@ -9,7 +9,7 @@ const links = [
   },
 
   {
-    href: "/privacidade",
+    href: "/dashboard",
     label: "privacidade",
   },
   {
