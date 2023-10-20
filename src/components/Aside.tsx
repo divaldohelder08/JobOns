@@ -59,7 +59,7 @@ export default function Aside() {
 
   api.get("/take")
   .then((response)=>{
-    response.data.areas.map((e) => {
+    response.data.areas.map((e: { area: string; }) => {
       console.log(getIconByArea(e.area));
     });
   }).catch((error)=>console.error(error))
