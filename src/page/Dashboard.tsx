@@ -42,6 +42,41 @@ export default function Dashboard() {
        name: "IG10E",
        total: Math.floor(Math.random() * 20) + 4,
      },
+     {
+       name: "IG10C",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10D",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10E",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10C",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10D",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10E",
+       total: Math.floor(Math.random() * 20) + 4,
+     },     {
+       name: "IG10C",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10D",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10E",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
    ];
   const data = [
     {

@@ -3,7 +3,16 @@ import Header from "@/components/Dashboard/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useParams } from "react-router-dom";
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardSubTitle,
+  CardTitle,
+} from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Activity, GraduationCap, Users, Zap } from "lucide-react";
 export default function Area() {
   const { area } = useParams();
 
@@ -18,6 +27,54 @@ export default function Area() {
               {area}
             </h1>
             <Button disabled>Upload</Button>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="flex justify-between">
+                  Alunos
+                  <Users className="text-muted-foreground" size={16} />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <CardSubTitle>+2350</CardSubTitle>{" "}
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="flex justify-between">
+                  Turmas
+                  <GraduationCap className="text-muted-foreground" size={16} />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <CardSubTitle>16</CardSubTitle>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="flex justify-between">
+                  Aproveitamento
+                  <Zap className="text-muted-foreground" size={16} />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <Progress value={57} className="w-full" />
+                <CardDescription>+20.1% from last month</CardDescription>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="flex justify-between">
+                  Aproveitamento
+                  <Activity className="text-muted-foreground" size={16} />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <Progress value={57} className="w-full" />
+                <CardDescription>+20.1% do trimestre passado</CardDescription>
+              </CardContent>
+            </Card>
           </div>
           <Footer />
         </main>
