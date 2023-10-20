@@ -43,6 +43,10 @@ type AreaIconMap = {
   [area: string]: JSX.Element;
 };
 
+interface Area {
+  area: string;
+  turmas: { [key: number]: string[] };
+}
 function getIconByArea(area: string): JSX.Element | undefined {
   const iconMap: AreaIconMap = {
     Informática: <Laptop size={18} />,
@@ -59,7 +63,7 @@ export default function Aside() {
 
   api.get("/take")
   .then((response)=>{
-    response.data.areas.map((e: { area: string; }) => {
+    response.data.areas.map((e: Area) => {
       console.log(getIconByArea(e.area));
     });
   }).catch((error)=>console.error(error))
