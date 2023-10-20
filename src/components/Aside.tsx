@@ -1,4 +1,3 @@
-import { api } from "@/Api/Api";
 import {
   Backpack,
   DraftingCompass,
@@ -39,24 +38,24 @@ const area: data[] = [
       turmas: ["CV10A", "CV10B", "CV11A", "CV12B"],
     },
   ]
-type AreaIconMap = {
-  [area: string]: JSX.Element;
-};
+// type AreaIconMap = {
+//   [area: string]: JSX.Element;
+// };
 
-interface Area {
-  area: string;
-  turmas: { [key: number]: string[] };
-}
-function getIconByArea(area: string): JSX.Element | undefined {
-  const iconMap: AreaIconMap = {
-    Informática: <Laptop size={18} />,
-    Eletricidade: <Zap size={18} />,
-    Mecânica: <Wrench size={18} />,
-    "Construção civil": <DraftingCompass size={18} />,
-  };
+// interface Area {
+//   area: string;
+//   turmas: { [key: number]: string[] };
+// }
+// function getIconByArea(area: string): JSX.Element | undefined {
+//   const iconMap: AreaIconMap = {
+//     Informática: <Laptop size={18} />,
+//     Eletricidade: <Zap size={18} />,
+//     Mecânica: <Wrench size={18} />,
+//     "Construção civil": <DraftingCompass size={18} />,
+//   };
 
-  return iconMap[area];
-}
+//   return iconMap[area];
+// }
   
 
 export default function Aside() {
