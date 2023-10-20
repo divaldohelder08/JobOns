@@ -61,12 +61,12 @@ function getIconByArea(area: string): JSX.Element | undefined {
 
 export default function Aside() {
 
-  api.get("/take")
-  .then((response)=>{
-    response.data.areas.map((e: Area) => {
-      console.log(getIconByArea(e.area));
-    });
-  }).catch((error)=>console.error(error))
+  // api.get("/take")
+  // .then((response)=>{
+  //   response.data.areas.map((e: Area) => {
+  //     console.log(getIconByArea(e.area));
+  //   });
+  // }).catch((error)=>console.error(error))
 
   return (
     <aside className="h-full w-60 text-card-foreground p-2 mx-auto border-r bg-background/95 ">
