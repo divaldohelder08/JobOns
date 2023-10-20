@@ -21,55 +21,50 @@ import {
 import { Activity, GraduationCap, Users, Zap } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 export default function Dashboard() {
+   const data10 = [
+     {
+       name: "IG10A",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10B",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10C",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10D",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+     {
+       name: "IG10E",
+       total: Math.floor(Math.random() * 20) + 4,
+     },
+   ];
   const data = [
     {
-      name: "Jan",
+      name: "IG10A",
       total: Math.floor(Math.random() * 20) + 4,
     },
     {
-      name: "Feb",
+      name: "IG10B",
       total: Math.floor(Math.random() * 20) + 4,
     },
     {
-      name: "Mar",
+      name: "IG10C",
       total: Math.floor(Math.random() * 20) + 4,
     },
     {
-      name: "Apr",
+      name: "IG10D",
       total: Math.floor(Math.random() * 20) + 4,
     },
     {
-      name: "May",
+      name: "IG10E",
       total: Math.floor(Math.random() * 20) + 4,
     },
-    {
-      name: "Jun",
-      total: Math.floor(Math.random() * 20) + 4,
-    },
-    {
-      name: "Jul",
-      total: Math.floor(Math.random() * 20) + 4,
-    },
-    {
-      name: "Aug",
-      total: Math.floor(Math.random() * 20) + 4,
-    },
-    {
-      name: "Sep",
-      total: Math.floor(Math.random() * 20) + 4,
-    },
-    {
-      name: "Oct",
-      total: Math.floor(Math.random() * 20) + 4,
-    },
-    {
-      name: "Nov",
-      total: Math.floor(Math.random() * 20) + 4,
-    },
-    {
-      name: "Dec",
-      total: Math.floor(Math.random() * 20) + 4,
-    },
+   
   ];
 
   return (
@@ -136,7 +131,7 @@ export default function Dashboard() {
               <TabsTrigger value="12">Classe 12</TabsTrigger>
             </TabsList>
             <TabsContent value="10">
-              <h2 className="text-1xl font-bold my-4">Change your 10 here.</h2>
+              <h2 className="text-1xl font-bold my-4">Tudo sobre a 10.</h2>
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                 <Card className="col-span-4">
                   <CardHeader>
@@ -144,7 +139,7 @@ export default function Dashboard() {
                   </CardHeader>
                   <CardContent className="w-full h-[290px]">
                     <ResponsiveContainer className="w-full h-full">
-                      <BarChart data={data}>
+                      <BarChart data={data10}>
                         <XAxis
                           dataKey="name"
                           fontSize={12}
@@ -304,7 +299,7 @@ export default function Dashboard() {
               </div>
             </TabsContent>
             <TabsContent value="11">
-              <p>Change your 11 here.</p>{" "}
+              <h2 className="text-1xl font-bold my-4">Tudo sobre a 11</h2>
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                 <Card className="col-span-4">
                   <CardHeader>
@@ -472,7 +467,7 @@ export default function Dashboard() {
               </div>
             </TabsContent>
             <TabsContent value="12">
-              <p>Change your 11 here.</p>{" "}
+              <h2 className="text-1xl font-bold my-4">Tudo sobre a 12</h2>
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                 <Card className="col-span-4">
                   <CardHeader>

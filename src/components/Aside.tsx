@@ -3,10 +3,11 @@ import {
   DraftingCompass,
   GraduationCap,
   Laptop,
+  Settings,
   Webhook,
   Wrench,
   Zap,
-  Settings
+  Home
 } from "lucide-react";
 import { Link } from "react-router-dom";
 type data = {
@@ -41,29 +42,24 @@ const routes: routeData[] = [
       {
         label: "Informática",
         icon: <Laptop size={18} />,
-        turmas: ["IG10C", "IG11A", "IG12A"],
+        turmas: ["Home", "IG10C", "IG11A", "IG12A"],
       },
       {
         label: "Eletricidade",
         icon: <Zap size={18} />,
-        turmas: ["EL10A", "IG11A", "IG12A"],
+        turmas: ["Home", "EL10A", "IG11A", "IG12A"],
       },
       {
         label: "Mecânica",
         icon: <Wrench size={18} />,
-        turmas: ["IG10C", "IG11A", "IG12A"],
+        turmas: ["Home", "IG10C", "IG11A", "IG12A"],
       },
       {
         label: "Construção civil",
         icon: <DraftingCompass size={18} />,
-        turmas: ["IG10C", "IG11A", "IG12A"],
+        turmas: ["Home", "IG10C", "IG11A", "IG12A"],
       },
     ],
-  },
-  {
-    label: "Novidades",
-    icon: <Backpack size={18} />,
-    tag: "/News",
   },
   {
     label: "Configurações",
@@ -101,17 +97,32 @@ export default function Aside() {
                               <ul className="pl-4">
                                 {sub.turmas?.map((sub1, index) => {
                                   return (
-                                    <Link
-                                      to={`/dashboard/${sub.label}/${sub1}`}
-                                      key={index}
-                                      className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-primary before:-left-0"
-                                    >
-                                      <Backpack
-                                        size={16}
-                                        className="text-primary"
-                                      />
-                                      {sub1}
-                                    </Link>
+                                    <>
+                                      {index === 0 ? (
+                                        <Link
+                                          to={`/dashboard/${sub.label}/`}
+                                          key={index}
+                                          className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-secondary-foreground before:-left-0"
+                                        >
+                                          <Home
+                                            size={18}
+                                          />
+                                          {sub1}
+                                        </Link>
+                                      ) : (
+                                        <Link
+                                          to={`/dashboard/${sub.label}/${sub1}`}
+                                          key={index}
+                                          className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-primary before:-left-0"
+                                        >
+                                          <Backpack
+                                            size={16}
+                                            className="text-primary"
+                                          />
+                                          {sub1}
+                                        </Link>
+                                      )}
+                                    </>
                                   );
                                 })}
                               </ul>
