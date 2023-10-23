@@ -31,7 +31,7 @@ export default function Footer() {
     <footer>
       {" "}
       <Container className="border-t border-border">
-        <div className="pt-10 pb-28 flex flex-col justify-between text-sm font-medium transition-colors">
+        <div className="px-4 md:px-auto pt-10 pb-28 flex flex-col justify-between text-sm font-medium transition-colors">
           <ul className="my-3 flex  flex-wrap gap-4">
             {links?.map((e, key) => {
               return (
