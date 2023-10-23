@@ -1,13 +1,10 @@
-import { api } from "@/Api/Api";
 import Comment from "@/components/sign/Comment";
 import { Button } from "@/components/ui/button";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { toast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleDashed, Github, Lock } from "lucide-react";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { z } from "zod";
@@ -19,12 +16,11 @@ const UserSchema = z.object({
     .nonempty("A password é obrigatória")
     .min(8, "A password deve conter pelo menos 8 caracteres"),
 });
+ 
+export type UserData = z.infer<typeof UserSchema>;
 
-type UserData = z.infer<typeof UserSchema>;
 
 export default function Signin() {
-  const [output, setOutput] = useState("");
-  const [delay, setDelay] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -32,31 +28,8 @@ export default function Signin() {
   } = useForm<UserData>({
     resolver: zodResolver(UserSchema),
   });
-  console.log(output);
   // const formData
-  const signData = (data: UserData) => {
-    setDelay(true);
-    api
-      .post("/auth", data)
-      .then((response) => {
-        toast({
-          title: `Logando com ${response.data.user.username}`,
-          description: response.data.mensagem,
-        });
-        setOutput(JSON.stringify(response.data, null, 2));
-      })
-      .catch((error) => {
-        console.error(error);
-        toast({
-          variant: "destructive",
-          title: "Erro",
-          description: error.response.data.mensagem,
-        });
-      })
-      .finally(() => {
-        setDelay(false);
-      });
-  };
+ 
   return (
     <div className="flex h-screen w-full bg-card">
       <div className="my-auto w-[455px] rs:border-r bg-card text-card-foreground shadow py-5 px-9 mx-auto rs:mx-0">

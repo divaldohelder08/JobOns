@@ -1,15 +1,15 @@
 import {
   Backpack,
   DraftingCompass,
+  GitMerge,
   GraduationCap,
   Laptop,
   Settings,
   Webhook,
   Wrench,
   Zap,
-  GitMerge
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 type data = {
   label: string;
   icon: JSX.Element;
@@ -17,27 +17,27 @@ type data = {
 };
 
 const area: data[] = [
-    {
-      label: "Informática",
-      icon: <Laptop size={18} />,
-      turmas: ["IG10C", "IG11A", "IG12A"],
-    },
-    {
-      label: "Eletricidade",
-      icon: <Zap size={18} />,
-      turmas: ["EL10A", "IG11A", "IG12A"],
-    },
-    {
-      label: "Mecânica",
-      icon: <Wrench size={18} />,
-      turmas: ["MC10A", "MC11B", "MC12C"],
-    },
-    {
-      label: "Construção civil",
-      icon: <DraftingCompass size={18} />,
-      turmas: ["CV10A", "CV10B", "CV11A", "CV12B"],
-    },
-  ]
+  {
+    label: "Informática",
+    icon: <Laptop size={18} />,
+    turmas: ["IG10C", "IG11A", "IG12A"],
+  },
+  {
+    label: "Eletricidade",
+    icon: <Zap size={18} />,
+    turmas: ["EL10A", "IG11A", "IG12A"],
+  },
+  {
+    label: "Mecânica",
+    icon: <Wrench size={18} />,
+    turmas: ["MC10A", "MC11B", "MC12C"],
+  },
+  {
+    label: "Construção civil",
+    icon: <DraftingCompass size={18} />,
+    turmas: ["CV10A", "CV10B", "CV11A", "CV12B"],
+  },
+];
 // type AreaIconMap = {
 //   [area: string]: JSX.Element;
 // };
@@ -56,10 +56,8 @@ const area: data[] = [
 
 //   return iconMap[area];
 // }
-  
 
 export default function Aside() {
-
   // api.get("/take")
   // .then((response)=>{
   //   response.data.areas.map((e: Area) => {
@@ -106,26 +104,29 @@ export default function Aside() {
                         {e.label}
                       </summary>
                       <ul className="pl-4">
-                        <Link
+                        <NavLink
                           to={`/dashboard/${e.label}`}
+                          style={({ isActive }) => {
+                            return isActive ? { color: "plum" } : {};
+                          }}
                           className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-primary before:-left-0"
                         >
                           <GitMerge className="text-primary" size={18} />
-                          Mergi
-                        </Link>
+                          Merge
+                        </NavLink>
                         {e.turmas?.map((sub1, index) => {
-                          return (                          
-                                <Link
-                                  to={`/dashboard/${e.label}/${sub1}`}
-                                  key={index}
-                                  className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-primary before:-left-0"
-                                >
-                                  <Backpack
-                                    size={16}
-                                    className="text-primary"
-                                  />
-                                  {sub1}
-                                </Link>
+                          return (
+                            <NavLink
+                              to={`/dashboard/${e.label}/${sub1}`}
+                              key={index}
+                              style={({ isActive }) => {
+                                return isActive ? { color: "plum" } : {};
+                              }}
+                              className="font-medium items-center  px-3 py-1 text-sm inline-flex gap-2 w-full before:h-px before:w-5 before:t-3 before:absolute before:bg-primary before:-left-0"
+                            >
+                              <Backpack size={16} className="text-primary" />
+                              {sub1}
+                            </NavLink>
                           );
                         })}
                       </ul>

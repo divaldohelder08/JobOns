@@ -3,26 +3,16 @@ import Home from "@/page/Home";
 import Signin from "@/page/Sign-in";
 import Signup from "@/page/Sign-up";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Otp from "./page/Otp";
-import Dashboard from "./page/Dashboard";
-import Turma from "./page/Turma";
 import Area from "./page/Area";
-import Index from "./rechart";
+import Dashboard from "./page/Dashboard";
+import Otp from "./page/Otp";
+import Turma from "./page/Turma";
 export default function Routes() {
   const rotas = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
     },
-    {
-      path: "/entrar",
-      element: <Signin />,
-    },
-    {
-      path: "/cadastrar",
-      element: <Signup />,
-    },
-
     {
       path: "/otg",
       element: <Otp />,
@@ -32,16 +22,20 @@ export default function Routes() {
       element: <Dashboard />,
     },
     {
-      path: "/ola2",
-      element: <Index />,
+      path: "/dashboard/:area/:turma",
+      element: <Turma />,
     },
     {
       path: "/dashboard/:area",
       element: <Area />,
     },
     {
-      path: "/dashboard/:area/:turma",
-      element: <Turma />,
+      path: "/cadastrar",
+      element: <Signup />,
+    },
+    {
+      path: "/entrar",
+      element: <Signin />,
     },
   ]);
   return (
